@@ -3,13 +3,12 @@
 namespace App\Controller\Site;
 
 use App\Repository\CategoryRepository;
-use App\Repository\LegalInformationsRepository;
 use App\Service\LegalInformationsService;
-use Endroid\QrCode\QrCode;
-use Endroid\QrCodeBundle\Response\QrCodeResponse;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Repository\LegalInformationsRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 final class SiteController extends AbstractController
 {
@@ -20,7 +19,7 @@ final class SiteController extends AbstractController
     ) {}
 
     #[Route('/', name: 'site_home')]
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $categories = $this->categoryRepository->findAll();
         $legales = $this->legalInformationsRepository->findOneBy([]);
@@ -40,7 +39,7 @@ final class SiteController extends AbstractController
             'link' => "natalia-rudisuli-Ijp5eB0bv5E-unsplash",
             'alt' => "un-plateau-de-fromage-et-de-craquelins-sur-une-table-Ijp5eB0bv5E",
             'authorLink' => 'Photo de <a target="_blank" href="https://unsplash.com/fr/@nruedisueli?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Natalia Rüdisüli</a> sur <a target="_blank" href="https://unsplash.com/fr/photos/un-plateau-de-fromage-et-de-craquelins-sur-une-table-Ijp5eB0bv5E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
-        ];
+        ];  
 
         return $this->render('site/home/index.html.twig', [
             'title' => 'FAKE MENU',
