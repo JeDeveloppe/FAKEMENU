@@ -1,0 +1,11 @@
+.navbar-brand img{
+    width: 50px;
+    max-height: 50px;
+    border-radius: 25%;
+}
+.footerLogoSite{
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 25%;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}

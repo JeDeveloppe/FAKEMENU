@@ -1,0 +1,17 @@
+<footer class="row g-0 align-items-center mt-auto">
+	<div class="col-12 col-md-6 d-flex align-items-center ps-4 justify-content-center justify-content-md-start">
+		<img class="footerLogoSite" src="{{ asset('images/logoSite.png') }}" alt="Logo du site {{ legales.companyName}}">
+		<div class="ms-3">
+			{{ legales.companyName}}<br/>
+			{{ legales.companyStreet}}<br/>
+			{{ legales.companyPostalCode}} {{ legales.companyCity}}<br/>
+			<i class="fa-solid fa-phone-volume"></i>: <a class="text-decoration-none" href="tel: {{ legales.companyPhoneWithoutSpecialCharacters }}"> {{ legales.companyPhone }}</a>
+		</div>
+	</div>
+	<ul class="col-12 col-md-6 nav justify-content-center justify-content-md-end pe-md-2 mt-3 mt-md-0">
+		<li class="nav-item">
+			<a class="nav-link" href="{{ path('site_mentions_legales') }}">Mentions légales</a>
+		</li>
+	</ul>
+    {% include "site/components/_footerMakeWithLove.html.twig" with {'startedAt': 2025 } %}
+</footer>

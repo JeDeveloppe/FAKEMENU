@@ -1,0 +1,9 @@
+	<div class="col-12 small text-center pt-4 pb-2">
+		{% set now = 'now'| date('Y') %}
+		{% if startedAt != now %}
+			{{ startedAt }} - {{ now }}
+		{% else %}
+			{{ now }}
+		{% endif %}
+		With 💛 by <a class="text-decoration-none cursor-alias text-white"  href="https://www.je-developpe.fr/" target="_blank" rel="noopener">Je-Développe</a>
+	</div>
