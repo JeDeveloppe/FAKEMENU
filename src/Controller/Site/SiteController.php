@@ -7,6 +7,7 @@ use App\Service\LegalInformationsService;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\LegalInformationsRepository;
+use App\Service\QrCodeService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -16,6 +17,7 @@ final class SiteController extends AbstractController
         private CategoryRepository $categoryRepository,
         private LegalInformationsRepository $legalInformationsRepository,
         private LegalInformationsService $legalInformationsService,
+        private QrCodeService $qrCodeService
     ) {}
 
     #[Route('/', name: 'site_home')]
@@ -41,11 +43,16 @@ final class SiteController extends AbstractController
             'authorLink' => 'Photo de <a target="_blank" href="https://unsplash.com/fr/@nruedisueli?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Natalia Rüdisüli</a> sur <a target="_blank" href="https://unsplash.com/fr/photos/un-plateau-de-fromage-et-de-craquelins-sur-une-table-Ijp5eB0bv5E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
         ];  
 
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
+        $qrCode = $this->qrCodeService->generateQrCodeWithLogo('https://www.url.com');
+        $qrCodeImage = $qrCode->getContent();
+
         return $this->render('site/home/index.html.twig', [
             'title' => 'FAKE MENU',
             'categories' => $categories,
             'legales' => $legales,
             'photos' => $photos,
+            'qrCodeImage' => $qrCodeImage
         ]);
     }
 

@@ -40,8 +40,8 @@ class AppFixtures extends Fixture
             for ($i = 0; $i < 5; $i++) {
                 $dish = new Dish();
                 $dish->setName($faker->foodName());
-                $dish->setPriceExcludingTax($faker->randomNumber(3));
-                $dish->setNumberOfPeople($faker->randomNumber(1));
+                $dish->setPriceExcludingTax($faker->numberBetween(200,2000));
+                $dish->setNumberOfPeople($faker->randomDigitNot(0));
                 $dish->setSpecialInformation($faker->sentence());
                 $dish->setDescription($faker->sentence());
                 $dish->setCategory($category);

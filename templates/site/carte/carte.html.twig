@@ -5,8 +5,8 @@
 
         {% for category in categories %}
 
-            <div class="col-11 mb-5">
-                <div id="{{ category.slug }}" class="col-12 h1 text-center">{{ category.name }}</div>
+            <div class="col-11 col-md-9 col-lg-7 mb-5">
+                <div id="{{ category.slug }}" class="col-12 h1 text-center mb-4">{{ category.name }}</div>
 
                 {% for dish in category.dishes %}
                     <div class="col-12 d-flex flex-wrap justify-content-around align-items-center mb-3">

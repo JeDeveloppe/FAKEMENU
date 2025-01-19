@@ -5,13 +5,13 @@
 
         <h1 class="col-12 text-center my-5">Bienvenue sur {{ legales.companyName }}</h1>
 
-        <div class="col-12 my-5 d-flex justify-content-center">
+        <div class="col-11 col-sm-9 my-5 d-flex justify-content-center">
             <div class="col-md-5">
                 Un simple petit projet de site web, un exemple de site web avec une page de présentation et un menu rapidement accèssible depuis un qrcode sur chaqu'une de vos tables de restaurant. <i class="fa-solid fa-face-smile-wink"></i>
             </div>
         </div>
 
-		<div id="carouselExampleCaptions" class="col-md-6 carousel slide" data-bs-ride="carousel">
+		<div id="carouselExampleCaptions" class="col-11 col-md-7 col-lg-6 col-xl-5 carousel slide" data-bs-ride="carousel">
 			<div class="carousel-indicators">
 				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -25,8 +25,8 @@
                     {% endif %}
                     <div class="carousel-item {{ active }} border border-2">
                         <img src="{{ asset('images/home/'~ photo.link ~ '.jpg') }}" class="d-block w-100" alt="{{ photo.alt }}">
-                        <div class="carousel-caption d-none d-md-block text-black">
-                            <p>{{ photo.authorLink | raw }}</p>
+                        <div class="carousel-caption text-black">
+                            {{ photo.authorLink | raw }}
                         </div>
 				    </div>
                 {% endfor %}
@@ -40,8 +40,12 @@
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
+	</div>
 
-
+	<div class="row g-0 justify-content-center align-items-center mb-5">
+		<div class="col-6 d-flex justify-content-center my-5">
+			{{ qrCodeImage | raw }}		
+		</div>
 	</div>
 
 {% endblock %}

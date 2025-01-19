@@ -6,7 +6,7 @@
 
     <div class="row g-0 justify-content-around align-items-center my-4">
         <h1 class="col-12 text-center">Mentions légales</h1>
-        <div class="col-12 small text-center">Date de dernière mise à jour : {{ legales.updatedAt | date('d-m-Y') }}</div>
+        <div class="col-12 small text-center">Date de la dernière mise à jour : {{ legales.updatedAt | date('d-m-Y') }}</div>
     </div>
 
     <div class="row g-0 py-5 justify-content-around">
@@ -16,8 +16,8 @@
                 <p>
                     <span class="fw-bolder">Propriétaire du site :</span> {{ legales.companyName }}<br />
                     <span class="fw-bolder">Contact :</span> {{ legales.companyEmail }}<br />
-                    <span class="fw-bolder">Adresse :</span> {{ legales.companyStreet }} {{ legales.companyPostalCode }} {{ legales.companyCity }}<br />
-                    <span class="fw-bolder">Hébergeur du site :</span> {{ legales.hostName }}, {{ legales.hostStreet }}, {{ legales.hostPostalCode }} {{ legales.hostCity }}<br/>
+                    <span class="fw-bolder">Adresse :</span> {{ legales.companyStreet }} - {{ legales.companyPostalCode }} {{ legales.companyCity }}<br />
+                    <span class="fw-bolder">Hébergeur du site :</span> {{ legales.hostName }} - {{ legales.hostStreet }} - {{ legales.hostPostalCode }} {{ legales.hostCity }}<br/>
                     <span class="fw-bolder">Développement & webmaster :</span> {{ legales.webmasterCompanyName }}<br />
                     <span class="fw-bolder">Webdesign :</span> {{ legales.webdesignerFirstName }} {{ legales.webdesignerLastName }}
                     {% if legales.webdesignerCompanyUrl is not null %}<a href="{{ legales.webdesignerCompanyUrl }}" target="_blank"><twig:ux:icon name="fluent-mdl2:website" style="width: 40px; height: 40px"/></a>{% endif %}

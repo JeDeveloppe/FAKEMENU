@@ -151,6 +151,7 @@ class Dish
 
     public function getPriceWithTax(): string
     {
-        return number_format($this->priceExcludingTax * (1 + $_ENV['TAX_RATE'] / 100), 2, ',', '') .' €';
+        // return number_format(($this->priceExcludingTax * (1 + ($_ENV['TAX_RATE'] / 100))), 2, ',', '') .' €';
+        return number_format($this->numberOfPeople * ($this->priceExcludingTax / 100 * (1 + ($_ENV['TAX_RATE'] / 100))), 2, ',', '') . ' €';
     }
 }
