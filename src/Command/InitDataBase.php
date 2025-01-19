@@ -3,17 +3,19 @@
 namespace App\Command;
 
 use App\Service\LegalInformationsService;
+use App\Service\UserService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'app:initdatabase1')]
-class InitDataBase1 extends Command
+#[AsCommand(name: 'app:initdatabase')]
+class InitDataBase extends Command
 {
     public function __construct(
         private LegalInformationsService $legalInformationService,
+        private UserService $userService
         )
     {
         parent::__construct();
@@ -28,6 +30,7 @@ class InitDataBase1 extends Command
         $io = new SymfonyStyle($input,$output);
 
         $this->legalInformationService->creationLegalInformations($io);
+        $this->userService->initAdminUser($io);
 
         return Command::SUCCESS;
     }
