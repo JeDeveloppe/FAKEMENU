@@ -19,7 +19,6 @@ For fun and training only, fake restaurant menu.
 ### METTRE A JOUR LE SCHEMA DE LA BDD
     symfony console d:s:u --force
 
-
 ### INITIALISER AVEC DES DONNEES FICTIVES
     symfony console d:f:l
 
