@@ -109,4 +109,5 @@ class LegalInformationsService
 
         return $paragraphs;
     }
+
 }

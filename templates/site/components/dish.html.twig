@@ -1,0 +1,25 @@
+<div class="col-12 d-flex flex-wrap justify-content-around align-items-center mb-3">
+        <div class="col-12 col-sm-10">
+            {% set conjugaisonPersonne = 'personne' %}
+            {% if this.dish.numberOfPeople > 1 %}{% set conjugaisonPersonne = 'personnes' %}{% endif %}
+
+            <div class="col-12">{{ this.dish.name }}</div>
+            <div class="col-12">{{ this.dish.description }}</div>
+            <div class="col-12 small fst-italic">
+                Ingrédients:
+                {% for ingredient in this.dish.ingredients %}
+                    {% if loop.first %}
+                        {{ ingredient.name }}
+                    {% else %}
+                        , {{ ingredient.name }}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-12"><i class="fa-solid fa-circle-info text-warning"></i><span class="text-warning fw-bolder"> Information:</span> <span class="text-warning small">{{ this.dish.specialInformation }}</span></div>
+        </div>
+        <div class="col-12 col-sm-2 text-end">
+            {{ this.dish.priceWithTax }}<br/>
+            <span class="small fst-italic">(pour {{ this.dish.numberOfPeople }} {{ conjugaisonPersonne }})</span>
+        </div>
+        <hr class="col-11 col-sm-10"></hr>
+</div>

@@ -3,43 +3,7 @@
 {% block body %}
     <div class="row g-0 justify-content-center align-items-center">
 
-        {% for category in categories %}
-
-            <div class="col-11 col-md-9 col-lg-7 mb-5">
-                <div id="{{ category.slug }}" class="col-12 h1 text-center mb-4">{{ category.name }}</div>
-
-                {% for dish in category.dishes %}
-                    <div class="col-12 d-flex flex-wrap justify-content-around align-items-center mb-3">
-                        <div class="col-12 col-sm-10">
-
-                            {% set conjugaisonPersonne = 'personne' %}
-                            {% if dish.numberOfPeople > 1 %}{% set conjugaisonPersonne = 'personnes' %}{% endif %}
-
-                            <div class="col-12">{{ dish.name }}</div>
-                            <div class="col-12">{{ dish.description }}</div>
-                            <div class="col-12 small fst-italic">
-                                Ingrédients:
-                                {% for ingredient in dish.ingredients %}
-                                    {% if loop.first %}
-                                        {{ ingredient.name }}
-                                    {% else %}
-                                        , {{ ingredient.name }}
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                            <div class="col-12"><i class="fa-solid fa-circle-info text-warning"></i><span class="text-warning fw-bolder"> Information:</span> <span class="text-warning small">{{ dish.specialInformation }}</span></div>
-                        </div>
-                        <div class="col-12 col-sm-2 text-end">
-                            {{ dish.priceWithTax }}<br/>
-                            <span class="small fst-italic">(pour {{ dish.numberOfPeople }} {{ conjugaisonPersonne }})</span>
-                        </div>
-                        <hr class="col-11 col-sm-10"></hr>
-                    </div>
-                {% endfor %}
-
-            </div>
-
-        {% endfor %}
+        {{ component('all_categories') }}
 
     </div>
 

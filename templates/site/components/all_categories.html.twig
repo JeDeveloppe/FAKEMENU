@@ -1,0 +1,14 @@
+{% for category in this.allCategories %}
+
+    <div class="col-11 col-md-9 col-lg-7 mb-5">
+        <div id="{{ category.slug }}" class="col-12 h1 text-center mb-4">{{ category.name }}</div>
+
+        {% for dish in category.dishes %}
+
+            {{ component('dish', {'id': dish.id }) }}
+
+        {% endfor %}
+
+    </div>
+
+{% endfor %}

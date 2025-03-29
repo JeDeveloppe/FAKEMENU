@@ -1,5 +1,5 @@
 twig_component:
-    anonymous_template_directory: 'site/components/twigLive'
+    anonymous_template_directory: 'site/components/'
     defaults:
         # Namespace & directory for components
-        App\Twig\Components\: 'site/components/twigLive'
+        App\Components\: 'site/components/'

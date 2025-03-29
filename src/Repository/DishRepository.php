@@ -16,6 +16,22 @@ class DishRepository extends ServiceEntityRepository
         parent::__construct($registry, Dish::class);
     }
 
+    public function findByQuery(string $query): array
+    {
+        if (empty($query)) {
+            return [];
+        }
+        
+        return $this->createQueryBuilder('b')
+            ->where('b.name LIKE :query')
+            ->andWhere('b.description LIKE :query')
+            ->setParameter('query', '%'.$query.'%')
+            ->orderBy('b.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     //    /**
     //     * @return Dish[] Returns an array of Dish objects
     //     */
